@@ -12,17 +12,10 @@ import am5themes_Responsive from "@amcharts/amcharts5/themes/Responsive";
     <div class="relative flex flex-col items-center justify-between">
       <div
         id="chartdiv"
-        class="relative w-full h-[500]">
-        <div class="absolute bottom-14 left-1/2 -ml-6 z-10">
-          <div
-            class="flex justify-center items-center p-4 w-12 h-12 rounded-full bg-blue-500 text-white">
-            {{ currentValue }}
-          </div>
-        </div>
-      </div>
+        class="relative w-full h-[500]"></div>
 
       <button
-        class="mt-4 px-4 py-1 bg-blue-500 text-white rounded"
+        class="mt-8 px-4 py-1 bg-blue-500 text-white rounded"
         (click)="updateValue()">
         Set random value
       </button>
@@ -36,6 +29,8 @@ export class GaugeComponent implements OnInit {
   private axisRenderer!: am5radar.AxisRendererCircular;
   private xAxis!: am5xy.ValueAxis<am5xy.AxisRenderer>;
   private axisDataItem!: am5.DataItem<am5xy.IValueAxisDataItem>;
+  private bullet!: am5xy.AxisBullet;
+  private clockHand!: am5radar.ClockHand;
   currentValue = 0;
 
   constructor(
@@ -102,14 +97,7 @@ export class GaugeComponent implements OnInit {
       this.axisDataItem = this.xAxis.makeDataItem({});
       this.axisDataItem.set("value", 0);
 
-      var bullet = this.axisDataItem.set(
-        "bullet",
-        am5xy.AxisBullet.new(this.root, {
-          sprite: am5radar.ClockHand.new(this.root, {
-            radius: am5.percent(99),
-          }),
-        })
-      );
+      this.displayBullet();
 
       this.xAxis.createAxisRange(this.axisDataItem);
 
@@ -130,6 +118,65 @@ export class GaugeComponent implements OnInit {
       this.chart.appear(1000, 100);
 
       // this.root = root;
+    });
+  }
+
+  displayBullet() {
+    this.clockHand = am5radar.ClockHand.new(this.root, {
+      pinRadius: am5.percent(15),
+      radius: am5.percent(100),
+      bottomWidth: 20,
+    });
+
+    this.bullet = this.axisDataItem.set(
+      "bullet",
+      am5xy.AxisBullet.new(this.root, {
+        sprite: this.clockHand,
+      })
+    );
+
+    var label = this.chart.radarContainer.children.push(
+      am5.Label.new(this.root, {
+        fill: am5.color(0xffffff),
+        centerX: am5.percent(50),
+        textAlign: "center",
+        centerY: am5.percent(50),
+        fontSize: "3em",
+      })
+    );
+
+    this.bullet.get("sprite").on("rotation", () => {
+      var value = this.axisDataItem.get("value") || 0;
+      // var text = Math.round(value).toString();
+      var text = this.currentValue.toString();
+      var defaultFill = am5.color("rgb(240, 73, 34)");
+      var fill: am5.Color = defaultFill;
+
+      this.xAxis.axisRanges.each((axisRange) => {
+        const axisRangeValue = axisRange.get("value") || 0;
+        const axisRangeEndValue = axisRange.get("value") || 0;
+
+        if (value >= axisRangeValue && value <= axisRangeEndValue) {
+          const axisFill = axisRange.get("axisFill");
+          fill = axisFill?.get("fill") ?? defaultFill;
+        }
+      });
+
+      label.set("text", text);
+
+      this.clockHand.pin.animate({
+        key: "fill",
+        to: fill,
+        duration: 500,
+        easing: am5.ease.out(am5.ease.cubic),
+      });
+
+      this.clockHand.hand.animate({
+        key: "fill",
+        to: fill,
+        duration: 500,
+        easing: am5.ease.out(am5.ease.cubic),
+      });
     });
   }
 
