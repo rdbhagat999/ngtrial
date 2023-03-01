@@ -9,13 +9,20 @@ import am5themes_Responsive from "@amcharts/amcharts5/themes/Responsive";
 @Component({
   selector: "app-gauge",
   template: `
-    <div class="flex flex-col items-center justify-center">
+    <div class="relative flex flex-col items-center justify-between">
       <div
         id="chartdiv"
-        style="width: 100%; height: 500px"></div>
+        class="relative w-full h-[500]">
+        <div class="absolute bottom-14 left-1/2 -ml-6 z-10">
+          <div
+            class="flex justify-center items-center p-4 w-12 h-12 rounded-full bg-blue-500 text-white">
+            {{ currentValue }}
+          </div>
+        </div>
+      </div>
 
       <button
-        class="mx-auto mt-4 px-4 py-1 bg-blue-500 text-white rounded"
+        class="mt-4 px-4 py-1 bg-blue-500 text-white rounded"
         (click)="updateValue()">
         Set random value
       </button>
@@ -29,6 +36,7 @@ export class GaugeComponent implements OnInit {
   private axisRenderer!: am5radar.AxisRendererCircular;
   private xAxis!: am5xy.ValueAxis<am5xy.AxisRenderer>;
   private axisDataItem!: am5.DataItem<am5xy.IValueAxisDataItem>;
+  currentValue = 0;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -126,9 +134,11 @@ export class GaugeComponent implements OnInit {
   }
 
   updateValue() {
+    this.currentValue = Math.round(Math.random() * 100);
+
     this.axisDataItem.animate({
       key: "value",
-      to: Math.round(Math.random() * 100),
+      to: this.currentValue,
       duration: 800,
       easing: am5.ease.out(am5.ease.cubic),
     });
