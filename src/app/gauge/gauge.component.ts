@@ -8,6 +8,7 @@ import am5themes_Responsive from "@amcharts/amcharts5/themes/Responsive";
 
 @Component({
   selector: "app-gauge",
+  standalone: true,
   template: `
     <div class="relative flex flex-col items-center justify-between">
       <div
