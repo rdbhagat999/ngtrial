@@ -19,9 +19,9 @@ import { ReactiveFormsModule } from "@angular/forms";
         id="minmax-range"
         class="bg-gray-50 text-black text-center rounded w-12 border-[1px] border-gray-500"
         type="text"
-        pattern="[0-100]"
+        pattern="^[1-9][0-9]?$|^100$"
         [value]="counter"
-        (change)="onChange($event)" />
+        (input)="onChange($event)" />
 
       <button
         type="button"
@@ -41,13 +41,17 @@ export class IncDecComponent {
   @Output() onChangeEvent = new EventEmitter<number>();
 
   increment() {
-    this.counter = this.counter + this.step;
-    this.onChangeEvent.emit(this.counter);
+    if (this.counter < 100) {
+      this.counter = this.counter + this.step;
+      this.onChangeEvent.emit(this.counter);
+    }
   }
 
   decrement() {
-    this.counter = this.counter - this.step;
-    this.onChangeEvent.emit(this.counter);
+    if (this.counter > 0) {
+      this.counter = this.counter - this.step;
+      this.onChangeEvent.emit(this.counter);
+    }
   }
 
   onChange(event: any) {
@@ -55,6 +59,10 @@ export class IncDecComponent {
     if (val >= 0 && val <= 100) {
       this.counter = val;
       this.onChangeEvent.emit(this.counter);
+    } else if (val < 0) {
+      this.counter = 0;
+    } else {
+      this.counter = 100;
     }
   }
 }
