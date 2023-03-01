@@ -9,15 +9,15 @@ import am5themes_Responsive from "@amcharts/amcharts5/themes/Responsive";
 @Component({
   selector: "app-gauge",
   template: `
-    <div
-      id="chartdiv"
-      style="width: 100%; height: 500px"></div>
+    <div class="flex flex-col items-center justify-center">
+      <div
+        id="chartdiv"
+        style="width: 100%; height: 500px"></div>
 
-    <div>
       <button
-        class="px-4 py-1 bg-blue-500 text-white"
+        class="mx-auto mt-4 px-4 py-1 bg-blue-500 text-white rounded"
         (click)="updateValue()">
-        Update
+        Set random value
       </button>
     </div>
   `,
