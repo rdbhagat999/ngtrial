@@ -11,8 +11,8 @@ import { CardComponent } from "../card/card.component";
   template: `
     <div class="rounded-lg border-4 border-gray-200">
       <div
-        class="w-full flex flex-col md:flex-row justify-start md:justify-between items-start px-4 my-8">
-        <div class="">
+        class="w-full flex flex-col justify-start sm:flex-row md:justify-between lg:justify-around items-start px-4 my-8 sm:space-x-12">
+        <div class="w-full">
           <!-- <div class="flex justify-between items-start">
           <div>
             <app-gauge id="chartId1"></app-gauge>
@@ -21,12 +21,13 @@ import { CardComponent } from "../card/card.component";
             <app-gauge id="chartId2"></app-gauge>
           </div>
         </div> -->
-          <div class="md:mt-52">
-            <app-range-counter class="space-y-10"></app-range-counter>
+          <div class="w-full md:mt-52">
+            <app-range-counter
+              class="w-full space-y-8 lg:space-y-4"></app-range-counter>
           </div>
         </div>
 
-        <div class="">
+        <div class="w-full mt-8 sm:mt-0">
           <app-card
             *ngFor="let item of data"
             [item]="item"></app-card>

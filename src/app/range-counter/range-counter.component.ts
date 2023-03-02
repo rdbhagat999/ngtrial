@@ -9,9 +9,10 @@ import { RangeInputComponent } from "../range-input/range-input.component";
   imports: [CommonModule, RangeInputComponent, IncDecComponent],
   template: `
     <div
-      class="flex flex-col md:flex-row md:justify-around items-center my-4"
+      class="w-full flex flex-col mx-auto justify-center md:flex-row md:justify-around items-center my-4"
       *ngFor="let item of links">
       <app-range-input
+        class="w-full"
         [rangeLabel]="item.label"
         [counter]="item.counter"
         (onChangeEvent)="item.counter = $event"></app-range-input>

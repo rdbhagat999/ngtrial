@@ -11,7 +11,7 @@ import { ReactiveFormsModule } from "@angular/forms";
       class="min-w-xs w-full flex flex-col lg:flex-row justify-around items-center space-4 p-4">
       <label
         for="minmax-range"
-        class="inline-block text-sm font-medium text-gray-900 dark:text-white mr-4 md:mb-4"
+        class="inline-block text-sm font-medium text-gray-900 dark:text-white mr-4 mb-4"
         >{{ rangeLabel }}</label
       >
       <input
@@ -21,7 +21,7 @@ import { ReactiveFormsModule } from "@angular/forms";
         max="10"
         [value]="counter"
         (change)="onChange($event)"
-        class="w-52 h-2 bg-blue-500 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" />
+        class="w-full h-2 bg-blue-500 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" />
     </div>
   `,
   styles: [
