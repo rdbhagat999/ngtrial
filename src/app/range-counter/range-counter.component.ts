@@ -3,6 +3,14 @@ import { CommonModule } from "@angular/common";
 import { IncDecComponent } from "../inc-dec/inc-dec.component";
 import { RangeInputComponent } from "../range-input/range-input.component";
 
+const DEFAULT_LINKS = [
+  { label: "Neuro", counter: 5 },
+  { label: "Cancer", counter: 5 },
+  { label: "Heart", counter: 5 },
+  { label: "Other", counter: 5 },
+  { label: "Respiratory", counter: 5 },
+  { label: "Stroke", counter: 5 },
+];
 @Component({
   selector: "app-range-counter",
   standalone: true,
@@ -24,12 +32,5 @@ import { RangeInputComponent } from "../range-input/range-input.component";
   styles: [],
 })
 export class RangeCounterComponent {
-  @Input() links = [
-    { label: "Neuro", counter: 7 },
-    { label: "Cancer", counter: 5 },
-    { label: "Heart", counter: 3 },
-    { label: "Other", counter: 8 },
-    { label: "Respiratory", counter: 1 },
-    { label: "Stroke", counter: 4 },
-  ];
+  @Input() links = [...DEFAULT_LINKS];
 }

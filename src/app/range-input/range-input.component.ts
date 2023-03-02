@@ -21,7 +21,7 @@ import { ReactiveFormsModule } from "@angular/forms";
         max="10"
         [value]="counter"
         (change)="onChange($event)"
-        class="w-full h-2 bg-blue-500 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" />
+        class="md:max-w-[250px] w-full h-2 bg-blue-500 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" />
     </div>
   `,
   styles: [

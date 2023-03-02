@@ -20,7 +20,7 @@ import { CommonModule } from "@angular/common";
         </h3>
 
         <p class="mb-2 font-normal text-green-700 dark:text-gray-400">
-          {{ item.current.price | currency }}
+          {{ item.current.price | currency : "USD" : "symbol" : "4.0-0" }}
         </p>
       </section>
 
@@ -31,7 +31,7 @@ import { CommonModule } from "@angular/common";
         </h3>
 
         <p class="mb-2 font-semibold text-green-600 dark:text-gray-400 text-xl">
-          {{ item.adjusted.price | currency }}
+          {{ item.adjusted.price | currency : "USD" : "symbol" : "4.0-0" }}
         </p>
       </section>
     </article>
