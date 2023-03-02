@@ -17,19 +17,17 @@ import am5themes_Responsive from "@amcharts/amcharts5/themes/Responsive";
   selector: "app-gauge",
   standalone: true,
   template: `
-    <div class="relative flex flex-col items-center justify-between">
-      <div
-        [id]="id"
-        class="relative"></div>
-    </div>
+    <div
+      [id]="id"
+      class="relative"></div>
 
-    <div class="relative">
+    <!-- <div class="relative">
       <button
         class="mt-8 px-4 py-1 bg-blue-500 text-white rounded"
         (click)="updateValue()">
         Set random value
       </button>
-    </div>
+    </div> -->
   `,
   styles: [],
 })
@@ -43,6 +41,7 @@ export class GaugeComponent implements OnInit {
   private bullet!: am5xy.AxisBullet;
   private clockHand!: am5radar.ClockHand;
   currentValue = 0;
+  setTimeoutTimer = 0;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -114,16 +113,16 @@ export class GaugeComponent implements OnInit {
 
       this.axisDataItem?.get("grid")?.set("visible", false);
 
-      // setInterval(() => {
-      //   this.axisDataItem.animate({
-      //     key: "value",
-      //     to: Math.round(Math.random() * 100),
-      //     duration: 800,
-      //     easing: am5.ease.out(am5.ease.cubic),
-      //   });
-      // }, 2000);
+      this.setTimeoutTimer = window.setInterval(() => {
+        // this.axisDataItem.animate({
+        //   key: "value",
+        //   to: Math.round(Math.random() * 100),
+        //   duration: 800,
+        //   easing: am5.ease.out(am5.ease.cubic),
+        // });
 
-      this.updateValue();
+        this.updateValue();
+      }, 3000);
 
       // Make stuff animate on load
       this.chart.appear(1000, 100);
