@@ -20,8 +20,10 @@ import am5themes_Responsive from "@amcharts/amcharts5/themes/Responsive";
     <div class="relative flex flex-col items-center justify-between">
       <div
         [id]="id"
-        class="relative w-full h-[300px]"></div>
+        class="relative"></div>
+    </div>
 
+    <div class="relative">
       <button
         class="mt-8 px-4 py-1 bg-blue-500 text-white rounded"
         (click)="updateValue()">
@@ -132,7 +134,7 @@ export class GaugeComponent implements OnInit {
 
   displayBullet() {
     this.clockHand = am5radar.ClockHand.new(this.root, {
-      pinRadius: am5.percent(15),
+      pinRadius: am5.percent(25),
       radius: am5.percent(100),
       bottomWidth: 20,
     });
@@ -150,14 +152,14 @@ export class GaugeComponent implements OnInit {
         centerX: am5.percent(50),
         textAlign: "center",
         centerY: am5.percent(50),
-        fontSize: "3em",
+        fontSize: "1rem",
       })
     );
 
     this.bullet.get("sprite").on("rotation", () => {
       var value = this.axisDataItem.get("value") || 0;
       // var text = Math.round(value).toString();
-      var text = this.currentValue.toString();
+      var text = this.currentValue.toString() + "%";
       var defaultFill = am5.color("rgb(240, 73, 34)");
       var fill: am5.Color = defaultFill;
 

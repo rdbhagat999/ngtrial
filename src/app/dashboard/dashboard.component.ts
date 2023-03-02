@@ -13,14 +13,14 @@ import { CardComponent } from "../card/card.component";
       <div
         class="w-full flex flex-col justify-start sm:flex-row md:justify-between lg:justify-around items-start px-4 my-8 sm:space-x-12">
         <div class="w-full">
-          <!-- <div class="flex justify-between items-start">
-          <div>
-            <app-gauge id="chartId1"></app-gauge>
+          <div class="flex justify-between items-start">
+            <div class="relative w-1/2 h-48">
+              <app-gauge id="chartId1"></app-gauge>
+            </div>
+            <div class="relative w-1/2 h-48">
+              <app-gauge id="chartId2"></app-gauge>
+            </div>
           </div>
-          <div>
-            <app-gauge id="chartId2"></app-gauge>
-          </div>
-        </div> -->
           <div class="w-full md:mt-52">
             <app-range-counter
               class="w-full space-y-8 lg:space-y-4"></app-range-counter>
