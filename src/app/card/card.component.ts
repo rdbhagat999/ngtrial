@@ -7,7 +7,7 @@ import { CommonModule } from "@angular/common";
   imports: [CommonModule],
   template: `
     <article
-      class="max-w-sm p-4 my-4 bg-white border border-gray-300 rounded-lg dark:bg-gray-800 dark:border-gray-700 transition-all ease-linear md:hover:scale-105">
+      class="max-w-sm p-4 my-4 bg-white border border-gray-300 hover:border-green-700 group rounded-lg dark:bg-gray-800 dark:border-gray-700 transition-all ease-linear md:hover:scale-105">
       <ng-container *ngIf="item.isCapacity">
         <section class="space-y-2">
           <div
@@ -31,7 +31,7 @@ import { CommonModule } from "@angular/common";
 
       <ng-container *ngIf="!item.isCapacity">
         <h2
-          class="mb-2 active:text-2xl font-semibold active:font-bold tracking-tight text-gray-700 dark:text-white capitalize">
+          class="mb-2 font-semibold tracking-tight group-hover:text-lg group-hover:font-bold group-hover:text-gray-700 dark:text-white capitalize">
           {{ item.title }}
         </h2>
 
@@ -60,7 +60,12 @@ import { CommonModule } from "@angular/common";
       </ng-container>
     </article>
   `,
-  styles: [],
+  styles: [
+    `
+      article:hover {
+      }
+    `,
+  ],
 })
 export class CardComponent {
   @Input() item!: any;
