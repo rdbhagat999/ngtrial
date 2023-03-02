@@ -24,14 +24,6 @@ import { CardComponent } from "../card/card.component";
           <div class="w-full md:mt-52">
             <app-range-counter
               class="w-full space-y-8 lg:space-y-4"></app-range-counter>
-
-            <div class="flex justify-center md:justify-end mt-8">
-              <button
-                type="button"
-                class="w-[200px] text-white capitalize bg-green-800 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-2xl text-sm sm:w-auto px-5 py-2 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-                Clear All
-              </button>
-            </div>
           </div>
         </div>
 

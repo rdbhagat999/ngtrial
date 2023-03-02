@@ -3,14 +3,6 @@ import { CommonModule } from "@angular/common";
 import { IncDecComponent } from "../inc-dec/inc-dec.component";
 import { RangeInputComponent } from "../range-input/range-input.component";
 
-const DEFAULT_LINKS = [
-  { label: "Neuro", counter: 5 },
-  { label: "Cancer", counter: 5 },
-  { label: "Heart", counter: 5 },
-  { label: "Other", counter: 5 },
-  { label: "Respiratory", counter: 5 },
-  { label: "Stroke", counter: 5 },
-];
 @Component({
   selector: "app-range-counter",
   standalone: true,
@@ -28,9 +20,36 @@ const DEFAULT_LINKS = [
         [counter]="item.counter"
         (onChangeEvent)="item.counter = $event"></app-inc-dec>
     </div>
+
+    <div class="flex justify-center md:justify-end mt-8">
+      <button
+        (click)="resetCounter()"
+        type="button"
+        class="w-40 text-white capitalize bg-green-800 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-2xl text-sm px-5 py-2 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+        Clear All
+      </button>
+    </div>
   `,
   styles: [],
 })
 export class RangeCounterComponent {
-  @Input() links = [...DEFAULT_LINKS];
+  @Input() links = [
+    { label: "Neuro", counter: 5 },
+    { label: "Cancer", counter: 5 },
+    { label: "Heart", counter: 5 },
+    { label: "Other", counter: 5 },
+    { label: "Respiratory", counter: 5 },
+    { label: "Stroke", counter: 5 },
+  ];
+
+  resetCounter() {
+    this.links = [
+      { label: "Neuro", counter: 5 },
+      { label: "Cancer", counter: 5 },
+      { label: "Heart", counter: 5 },
+      { label: "Other", counter: 5 },
+      { label: "Respiratory", counter: 5 },
+      { label: "Stroke", counter: 5 },
+    ];
+  }
 }

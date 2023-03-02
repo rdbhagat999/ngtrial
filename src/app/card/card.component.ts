@@ -7,7 +7,7 @@ import { CommonModule } from "@angular/common";
   imports: [CommonModule],
   template: `
     <article
-      class="max-w-sm p-4 my-4 bg-white border border-gray-300 rounded-lg dark:bg-gray-800 dark:border-gray-700">
+      class="max-w-sm p-4 my-4 bg-white border border-gray-300 rounded-lg dark:bg-gray-800 dark:border-gray-700 transition-all ease-linear md:hover:scale-105">
       <h2
         class="mb-2 active:text-2xl font-semibold active:font-bold tracking-tight text-gray-700 dark:text-white capitalize">
         {{ item.title }}
