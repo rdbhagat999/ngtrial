@@ -55,14 +55,20 @@ export class IncDecComponent {
   }
 
   onChange(event: any) {
-    const val = parseInt(event.target.value);
-    if (val >= 0 && val <= 10) {
-      this.counter = val;
-      this.onChangeEvent.emit(this.counter);
-    } else {
-      const counter = this.counter;
-      console.log(counter, val);
-      this.counter = counter;
+    try {
+      const val = parseInt(event.target.value);
+      if (val >= 0 && val <= 10) {
+        this.counter = val;
+        this.onChangeEvent.emit(this.counter);
+      } else if (val < 0) {
+        this.counter = 0;
+      } else if (val > 10) {
+        this.counter = 10;
+      } else {
+        console.log(val);
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
 }

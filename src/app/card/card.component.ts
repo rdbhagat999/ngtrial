@@ -8,32 +8,56 @@ import { CommonModule } from "@angular/common";
   template: `
     <article
       class="max-w-sm p-4 my-4 bg-white border border-gray-300 rounded-lg dark:bg-gray-800 dark:border-gray-700 transition-all ease-linear md:hover:scale-105">
-      <h2
-        class="mb-2 active:text-2xl font-semibold active:font-bold tracking-tight text-gray-700 dark:text-white capitalize">
-        {{ item.title }}
-      </h2>
+      <ng-container *ngIf="item.isCapacity">
+        <section class="space-y-2">
+          <div
+            *ngFor="let c of item.capacity; let first = first; let last = last">
+            <h3
+              class="text-sm font-semibold tracking-wider text-gray-500 dark:text-white capitalize">
+              {{ c.title }}
+            </h3>
 
-      <section>
-        <h3
-          class="text-sm font-semibold tracking-wider text-gray-500 dark:text-white capitalize">
-          {{ item.current.label }}
-        </h3>
+            <p
+              [ngClass]="{
+                'mb-2 font-semibold text-green-600 dark:text-gray-400 text-xl':
+                  first,
+                'mb-2 font-normal text-green-700 dark:text-gray-400': last
+              }">
+              {{ c.capacity }}
+            </p>
+          </div>
+        </section>
+      </ng-container>
 
-        <p class="mb-2 font-normal text-green-700 dark:text-gray-400">
-          {{ item.current.price | currency : "USD" : "symbol" : "4.0-0" }}
-        </p>
-      </section>
+      <ng-container *ngIf="!item.isCapacity">
+        <h2
+          class="mb-2 active:text-2xl font-semibold active:font-bold tracking-tight text-gray-700 dark:text-white capitalize">
+          {{ item.title }}
+        </h2>
 
-      <section>
-        <h3
-          class="text-sm font-semibold tracking-wider text-gray-500 dark:text-white capitalize">
-          {{ item.adjusted.label }}
-        </h3>
+        <section>
+          <h3
+            class="text-sm font-semibold tracking-wider text-gray-500 dark:text-white capitalize">
+            {{ item.current.label }}
+          </h3>
 
-        <p class="mb-2 font-semibold text-green-600 dark:text-gray-400 text-xl">
-          {{ item.adjusted.price | currency : "USD" : "symbol" : "4.0-0" }}
-        </p>
-      </section>
+          <p class="mb-2 font-normal text-green-700 dark:text-gray-400">
+            {{ item.current.price | currency : "USD" : "symbol" : "2.0-0" }}
+          </p>
+        </section>
+
+        <section>
+          <h3
+            class="text-sm font-semibold tracking-wider text-gray-500 dark:text-white capitalize">
+            {{ item.adjusted.label }}
+          </h3>
+
+          <p
+            class="mb-2 font-semibold text-green-600 dark:text-gray-400 text-xl">
+            {{ item.adjusted.price | currency : "USD" : "symbol" : "2.0-0" }}
+          </p>
+        </section>
+      </ng-container>
     </article>
   `,
   styles: [],

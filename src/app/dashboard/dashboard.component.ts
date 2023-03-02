@@ -79,15 +79,17 @@ export class DashboardComponent {
       },
     },
     {
-      title: "Adjusted Capacity",
-      current: {
-        label: "current",
-        price: "38",
-      },
-      adjusted: {
-        label: "adjusted",
-        price: "0",
-      },
+      isCapacity: true,
+      capacity: [
+        {
+          title: "Adjusted Capacity",
+          capacity: 38,
+        },
+        {
+          title: "Average Capacity",
+          capacity: 50,
+        },
+      ],
     },
   ];
 }
