@@ -1,4 +1,11 @@
-import { Component, Inject, NgZone, OnInit, PLATFORM_ID } from "@angular/core";
+import {
+  Component,
+  Inject,
+  Input,
+  NgZone,
+  OnInit,
+  PLATFORM_ID,
+} from "@angular/core";
 import { isPlatformBrowser } from "@angular/common";
 // amCharts imports
 import * as am5 from "@amcharts/amcharts5";
@@ -12,8 +19,8 @@ import am5themes_Responsive from "@amcharts/amcharts5/themes/Responsive";
   template: `
     <div class="relative flex flex-col items-center justify-between">
       <div
-        id="chartdiv"
-        class="relative w-full h-[500]"></div>
+        [id]="id"
+        class="relative w-full h-[300px]"></div>
 
       <button
         class="mt-8 px-4 py-1 bg-blue-500 text-white rounded"
@@ -25,6 +32,7 @@ import am5themes_Responsive from "@amcharts/amcharts5/themes/Responsive";
   styles: [],
 })
 export class GaugeComponent implements OnInit {
+  @Input() id!: string;
   private root!: am5.Root;
   private chart!: am5radar.RadarChart;
   private axisRenderer!: am5radar.AxisRendererCircular;
@@ -51,7 +59,7 @@ export class GaugeComponent implements OnInit {
   ngAfterViewInit() {
     // Chart code goes in here
     this.browserOnly(() => {
-      this.root = am5.Root.new("chartdiv");
+      this.root = am5.Root.new(this.id);
 
       this.root.setThemes([am5themes_Responsive.new(this.root)]);
 
