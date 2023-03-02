@@ -9,9 +9,10 @@ import { CardComponent } from "../card/card.component";
   standalone: true,
   imports: [CommonModule, RangeCounterComponent, GaugeComponent, CardComponent],
   template: `
-    <div class="w-full">
-      <div class="grid grid-cols-1 md:grid-cols-2">
-        <div class="grid-span-1 md:grid-span-2">
+    <div class="rounded-lg border-4 border-gray-200">
+      <div
+        class="w-full flex flex-col md:flex-row justify-start md:justify-between items-start px-4 my-8">
+        <div class="">
           <!-- <div class="flex justify-between items-start">
           <div>
             <app-gauge id="chartId1"></app-gauge>
@@ -20,12 +21,12 @@ import { CardComponent } from "../card/card.component";
             <app-gauge id="chartId2"></app-gauge>
           </div>
         </div> -->
-          <div>
-            <app-range-counter></app-range-counter>
+          <div class="md:mt-52">
+            <app-range-counter class="space-y-10"></app-range-counter>
           </div>
         </div>
 
-        <div class="grid-span-1 md:grid-span-2">
+        <div class="">
           <app-card
             *ngFor="let item of data"
             [item]="item"></app-card>
@@ -33,7 +34,13 @@ import { CardComponent } from "../card/card.component";
       </div>
     </div>
   `,
-  styles: [],
+  styles: [
+    `
+      :host {
+        width: 100%;
+      }
+    `,
+  ],
 })
 export class DashboardComponent {
   data = [
@@ -74,11 +81,11 @@ export class DashboardComponent {
       title: "Adjusted Capacity",
       current: {
         label: "current",
-        price: "16578006",
+        price: "38",
       },
       adjusted: {
         label: "adjusted",
-        price: "18578006",
+        price: "0",
       },
     },
   ];

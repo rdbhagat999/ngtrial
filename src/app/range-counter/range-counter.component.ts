@@ -9,7 +9,7 @@ import { RangeInputComponent } from "../range-input/range-input.component";
   imports: [CommonModule, RangeInputComponent, IncDecComponent],
   template: `
     <div
-      class="flex justify-evenly items-center my-4"
+      class="flex flex-col md:flex-row md:justify-around items-center my-4"
       *ngFor="let item of links">
       <app-range-input
         [rangeLabel]="item.label"
@@ -24,11 +24,11 @@ import { RangeInputComponent } from "../range-input/range-input.component";
 })
 export class RangeCounterComponent {
   @Input() links = [
-    { label: "Neuro", counter: 75 },
-    { label: "Cancer", counter: 50 },
-    { label: "Heart", counter: 30 },
-    { label: "Other", counter: 85 },
-    { label: "Respiratory", counter: 15 },
-    { label: "Stroke", counter: 45 },
+    { label: "Neuro", counter: 7 },
+    { label: "Cancer", counter: 5 },
+    { label: "Heart", counter: 3 },
+    { label: "Other", counter: 8 },
+    { label: "Respiratory", counter: 1 },
+    { label: "Stroke", counter: 4 },
   ];
 }
