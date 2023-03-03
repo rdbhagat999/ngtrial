@@ -17,9 +17,17 @@ import am5themes_Responsive from "@amcharts/amcharts5/themes/Responsive";
   selector: "app-gauge",
   standalone: true,
   template: `
-    <div
-      [id]="id"
-      class="relative"></div>
+    <div class="relative">
+      <div
+        [id]="chartId"
+        class="md:w-full h-48"></div>
+
+      <p
+        id="chart-label"
+        class="text-sm capitalize text-center font-semibold dark:text-white">
+        {{ chartLabel }}
+      </p>
+    </div>
 
     <!-- <div class="relative">
       <button
@@ -29,10 +37,20 @@ import am5themes_Responsive from "@amcharts/amcharts5/themes/Responsive";
       </button>
     </div> -->
   `,
-  styles: [],
+  styles: [
+    `
+      #chart-label {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    `,
+  ],
 })
 export class GaugeComponent implements OnInit {
-  @Input() id!: string;
+  @Input() chartId!: string;
+  @Input() chartLabel!: string;
   private root!: am5.Root;
   private chart!: am5radar.RadarChart;
   private axisRenderer!: am5radar.AxisRendererCircular;
@@ -40,8 +58,8 @@ export class GaugeComponent implements OnInit {
   private axisDataItem!: am5.DataItem<am5xy.IValueAxisDataItem>;
   private bullet!: am5xy.AxisBullet;
   private clockHand!: am5radar.ClockHand;
-  currentValue = 0;
-  setTimeoutTimer = 0;
+  private currentValue = 0;
+  private setTimeoutTimer = 0;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -60,7 +78,7 @@ export class GaugeComponent implements OnInit {
   ngAfterViewInit() {
     // Chart code goes in here
     this.browserOnly(() => {
-      this.root = am5.Root.new(this.id);
+      this.root = am5.Root.new(this.chartId);
 
       this.root.setThemes([am5themes_Responsive.new(this.root)]);
 
@@ -81,6 +99,7 @@ export class GaugeComponent implements OnInit {
         innerRadius: -10,
         strokeOpacity: 1,
         strokeWidth: 15,
+
         strokeGradient: am5.LinearGradient.new(this.root, {
           rotation: 0,
           stops: [
@@ -113,7 +132,9 @@ export class GaugeComponent implements OnInit {
 
       this.axisDataItem?.get("grid")?.set("visible", false);
 
-      this.setTimeoutTimer = window.setInterval(() => {
+      this.root._logo?.dispose();
+
+      this.setTimeoutTimer = this.setTimeoutTimer = window.setInterval(() => {
         // this.axisDataItem.animate({
         //   key: "value",
         //   to: Math.round(Math.random() * 100),

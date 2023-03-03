@@ -16,10 +16,14 @@ import { CardComponent } from "../card/card.component";
           <div
             class="flex flex-col justify-start md:flex-row md:justify-center items-center">
             <div class="relative w-full md:w-1/2 h-48">
-              <app-gauge id="chartId1"></app-gauge>
+              <app-gauge
+                chartId="chartId1"
+                chartLabel="current"></app-gauge>
             </div>
             <div class="relative w-full md:w-1/2 h-48">
-              <app-gauge id="chartId2"></app-gauge>
+              <app-gauge
+                chartId="chartId2"
+                chartLabel="adjusted"></app-gauge>
             </div>
           </div>
           <div class="w-full mt-8">
