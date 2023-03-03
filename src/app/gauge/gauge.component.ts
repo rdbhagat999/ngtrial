@@ -24,7 +24,7 @@ import am5themes_Responsive from "@amcharts/amcharts5/themes/Responsive";
 
       <p
         id="chart-label"
-        class="text-sm capitalize text-center font-semibold dark:text-white">
+        class="text-sm capitalize text-center font-semibold text-blue-900 dark:text-white">
         {{ chartLabel }}
       </p>
     </div>
