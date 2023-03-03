@@ -11,7 +11,7 @@ import { ReactiveFormsModule } from "@angular/forms";
       class="min-w-xs w-full flex flex-col lg:flex-row justify-around items-center space-4 p-4">
       <label
         for="minmax-range"
-        class="inline-block text-sm font-medium text-gray-900 dark:text-white mr-4 mb-4 lg:mb-0"
+        class="inline-block lg:min-w-[80px] text-sm font-medium text-gray-900 dark:text-white lg:mr-4 mb-4 lg:mb-0"
         >{{ rangeLabel }}</label
       >
       <input

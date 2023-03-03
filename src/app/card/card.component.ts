@@ -7,7 +7,7 @@ import { CommonModule } from "@angular/common";
   imports: [CommonModule],
   template: `
     <article
-      class="cursor-pointer max-w-3xl p-4 my-4 bg-white border border-gray-300 hover:border-green-700 group rounded-lg dark:bg-gray-800 dark:border-gray-700 transition-all ease-linear md:hover:scale-105">
+      class="cursor-pointer max-w-sm md:min-w-[250px] p-4 my-4 bg-white border border-gray-300 hover:border-green-700 group rounded-lg dark:bg-gray-800 dark:border-gray-700 transition-all ease-linear md:hover:scale-105">
       <ng-container *ngIf="item.isCapacity">
         <section class="space-y-2">
           <div
