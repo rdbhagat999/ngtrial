@@ -6,6 +6,7 @@ import {
   CardComponent,
   MultiGaugeComponent,
 } from "../../components";
+import { GaugeChartComponent } from "src/app/components/gauge-chart/gauge-chart.component";
 @Component({
   selector: "app-dashboard",
   standalone: true,
@@ -13,6 +14,7 @@ import {
     CommonModule,
     RangeCounterComponent,
     GaugeComponent,
+    GaugeChartComponent,
     CardComponent,
     MultiGaugeComponent,
   ],
@@ -21,20 +23,30 @@ import {
       <div
         class="w-full flex flex-col justify-start sm:flex-row md:justify-between lg:justify-around items-start px-4 my-4 sm:space-x-12">
         <div class="w-full">
-          <!-- <div
+          <div
             class="flex flex-col justify-start md:flex-row md:justify-center items-center">
             <div class="relative w-full md:w-1/2 h-48">
-              <app-gauge
+              <!-- <app-gauge
                 chartId="chartId1"
-                chartLabel="current"></app-gauge>
+                chartLabel="current"></app-gauge> -->
+
+              <app-gauge-chart
+                chartId="chartId1"
+                [needleValue]="65"
+                chartLabel="Current"></app-gauge-chart>
             </div>
             <div class="relative w-full md:w-1/2 h-48">
-              <app-gauge
+              <!-- <app-gauge
                 chartId="chartId2"
-                chartLabel="adjusted"></app-gauge>
+                chartLabel="adjusted"></app-gauge> -->
+
+              <app-gauge-chart
+                chartId="chartId2"
+                [needleValue]="75"
+                chartLabel="Adjusted"></app-gauge-chart>
             </div>
-          </div> -->
-          <app-multi-gauge></app-multi-gauge>
+          </div>
+          <!-- <app-multi-gauge></app-multi-gauge> -->
 
           <div class="w-full mt-4">
             <app-range-counter class="w-full space-y-8"></app-range-counter>

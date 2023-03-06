@@ -99,7 +99,8 @@ export class GaugeMeterComponent implements OnInit, OnDestroy {
               fontSize: "22px",
               show: true,
               formatter: function (val) {
-                return parseInt(val.toString(), 10).toString();
+                const newVal = parseInt(val.toString(), 10).toString();
+                return newVal + "%";
               },
             },
           },
