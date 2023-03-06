@@ -26,7 +26,7 @@ export type ChartOptions = {
   template: `
     <div
       [id]="chartId"
-      class="chart p-0 max-w-full">
+      class="chart p-0 w-full max-w-[250px]">
       <apx-chart
         [series]="chartOptions.series"
         [chart]="chartOptions.chart"

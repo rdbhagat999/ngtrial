@@ -36,7 +36,7 @@ import {
           </div> -->
           <app-multi-gauge></app-multi-gauge>
 
-          <div class="w-full mt-8">
+          <div class="w-full mt-4">
             <app-range-counter class="w-full space-y-8"></app-range-counter>
           </div>
         </div>
