@@ -1,19 +1,27 @@
 import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { GaugeComponent } from "../gauge/gauge.component";
-import { RangeCounterComponent } from "../range-counter/range-counter.component";
-import { CardComponent } from "../card/card.component";
-
+import {
+  RangeCounterComponent,
+  GaugeComponent,
+  CardComponent,
+  MultiGaugeComponent,
+} from "../../components";
 @Component({
   selector: "app-dashboard",
   standalone: true,
-  imports: [CommonModule, RangeCounterComponent, GaugeComponent, CardComponent],
+  imports: [
+    CommonModule,
+    RangeCounterComponent,
+    GaugeComponent,
+    CardComponent,
+    MultiGaugeComponent,
+  ],
   template: `
     <div class="rounded-lg border-4 border-gray-200">
       <div
         class="w-full flex flex-col justify-start sm:flex-row md:justify-between lg:justify-around items-start px-4 my-4 sm:space-x-12">
         <div class="w-full">
-          <div
+          <!-- <div
             class="flex flex-col justify-start md:flex-row md:justify-center items-center">
             <div class="relative w-full md:w-1/2 h-48">
               <app-gauge
@@ -25,7 +33,9 @@ import { CardComponent } from "../card/card.component";
                 chartId="chartId2"
                 chartLabel="adjusted"></app-gauge>
             </div>
-          </div>
+          </div> -->
+          <app-multi-gauge></app-multi-gauge>
+
           <div class="w-full mt-8">
             <app-range-counter class="w-full space-y-8"></app-range-counter>
           </div>
