@@ -28,6 +28,7 @@ export class GaugeEchartComponent implements OnInit, AfterViewInit, OnDestroy {
   private chartDom: any;
   private myChart: any;
   private option: any;
+  private graphic: any;
   private timer: number = 0;
 
   constructor(@Inject(DOCUMENT) private document: Document) {}
@@ -63,6 +64,26 @@ export class GaugeEchartComponent implements OnInit, AfterViewInit, OnDestroy {
       useDirtyRect: false,
     });
 
+    this.graphic = echarts.graphic;
+    const axislineColor = this.graphic.LinearGradient(0, 0, 1, 0, [
+      {
+        offset: 0,
+        color: "#45ba14",
+      },
+      {
+        offset: 0.23,
+        color: "#a2c30a",
+      },
+      {
+        offset: 0.5,
+        color: "#ffcc00",
+      },
+      {
+        offset: 1,
+        color: "#ff0000",
+      },
+    ]);
+
     this.option = {
       series: [
         {
@@ -74,14 +95,17 @@ export class GaugeEchartComponent implements OnInit, AfterViewInit, OnDestroy {
           min: 0,
           max: 1,
           splitNumber: 8,
+          smooth: true,
           axisLine: {
+            show: true,
             lineStyle: {
               width: 30,
-              color: [
-                [0.7, "#7CFFB2"], // green
-                [0.85, "#FDDD60"], // yellow
-                [1, "#FF6E76"], // red
-              ],
+              // color: [
+              //   [0.7, "#7CFFB2"], // green
+              //   [0.85, "#FDDD60"], // yellow
+              //   [1, "#FF6E76"], // red
+              // ],
+              color: [[1, axislineColor]],
             },
           },
           pointer: {
