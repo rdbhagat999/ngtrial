@@ -1,14 +1,14 @@
 import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { GaugeChartComponent } from "../gauge-chart/gauge-chart.component";
+// import { GaugeChartComponent } from "../gauge-chart/gauge-chart.component";
 import { GaugeEchartComponent } from "../gauge-echart/gauge-echart.component";
 
 @Component({
   selector: "app-multi-gauge",
   standalone: true,
-  imports: [CommonModule, GaugeChartComponent, GaugeEchartComponent],
+  imports: [CommonModule, GaugeEchartComponent],
   template: `
-    <div
+    <!-- <div
       class="flex flex-col justify-start md:flex-row md:justify-center items-center">
       <div class="relative w-full md:w-1/2 h-48">
         <app-gauge-chart
@@ -22,7 +22,7 @@ import { GaugeEchartComponent } from "../gauge-echart/gauge-echart.component";
           [needleValue]="75"
           chartLabel="Adjusted"></app-gauge-chart>
       </div>
-    </div>
+    </div> -->
 
     <div
       class="flex flex-col justify-start md:flex-row md:justify-center items-center">

@@ -8,13 +8,12 @@ import {
   OnInit,
 } from "@angular/core";
 import { CommonModule, DOCUMENT } from "@angular/common";
-import { NgChartsModule } from "ng2-charts";
 import { Chart, ChartConfiguration } from "chart.js";
 
 @Component({
   selector: "app-gauge-chart",
   standalone: true,
-  imports: [CommonModule, NgChartsModule],
+  imports: [CommonModule],
   template: `
     <div class="chartBox relative mx-auto max-w-[250px] w-full h-full">
       <canvas [id]="chartId"></canvas>
