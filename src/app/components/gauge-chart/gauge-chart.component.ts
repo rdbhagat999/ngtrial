@@ -93,8 +93,8 @@ export class GaugeChartComponent implements OnInit, AfterViewInit, OnDestroy {
       0
     );
 
-    this.gradientSegment.addColorStop(0.7, "#2e8b57cc");
-    this.gradientSegment.addColorStop(0.95, "yellow");
+    this.gradientSegment.addColorStop(0.1, "#2e8b57cc");
+    this.gradientSegment.addColorStop(0.75, "yellow");
     this.gradientSegment.addColorStop(1, "#ff4500d6");
 
     const data = {

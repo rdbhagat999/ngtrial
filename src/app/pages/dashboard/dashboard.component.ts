@@ -5,8 +5,9 @@ import {
   GaugeComponent,
   CardComponent,
   MultiGaugeComponent,
+  GaugeChartComponent,
+  GaugeEchartComponent,
 } from "../../components";
-import { GaugeChartComponent } from "src/app/components/gauge-chart/gauge-chart.component";
 @Component({
   selector: "app-dashboard",
   standalone: true,
@@ -15,6 +16,7 @@ import { GaugeChartComponent } from "src/app/components/gauge-chart/gauge-chart.
     RangeCounterComponent,
     GaugeComponent,
     GaugeChartComponent,
+    GaugeEchartComponent,
     CardComponent,
     MultiGaugeComponent,
   ],
@@ -30,20 +32,30 @@ import { GaugeChartComponent } from "src/app/components/gauge-chart/gauge-chart.
                 chartId="chartId1"
                 chartLabel="current"></app-gauge> -->
 
-              <app-gauge-chart
+              <!-- <app-gauge-chart
                 chartId="chartId1"
                 [needleValue]="65"
-                chartLabel="Current"></app-gauge-chart>
+                chartLabel="Current"></app-gauge-chart> -->
+
+              <app-gauge-echart
+                chartId="chartId1"
+                chartLabel="Current"
+                [needleValue]="65"></app-gauge-echart>
             </div>
             <div class="relative w-full md:w-1/2 h-48">
               <!-- <app-gauge
                 chartId="chartId2"
                 chartLabel="adjusted"></app-gauge> -->
 
-              <app-gauge-chart
+              <!-- <app-gauge-chart
                 chartId="chartId2"
                 [needleValue]="75"
-                chartLabel="Adjusted"></app-gauge-chart>
+                chartLabel="Adjusted"></app-gauge-chart> -->
+
+              <app-gauge-echart
+                chartId="chartId2"
+                chartLabel="Adjusted"
+                [needleValue]="75"></app-gauge-echart>
             </div>
           </div>
           <!-- <app-multi-gauge></app-multi-gauge> -->
