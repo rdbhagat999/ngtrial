@@ -16,7 +16,7 @@ import { Chart, ChartConfiguration } from "chart.js";
   standalone: true,
   imports: [CommonModule, NgChartsModule],
   template: `
-    <div class="chartBox relative mx-auto w-full max-w-[250px]">
+    <div class="chartBox relative mx-auto max-w-[250px] w-full h-full">
       <canvas [id]="chartId"></canvas>
     </div>
   `,

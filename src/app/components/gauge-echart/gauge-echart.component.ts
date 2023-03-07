@@ -16,7 +16,7 @@ import * as echarts from "echarts";
   template: `
     <div
       [id]="chartId"
-      class=" relative overflow-hidden h-full"></div>
+      class=" relative overflow-hidden w-full h-full"></div>
   `,
   styles: [``],
 })

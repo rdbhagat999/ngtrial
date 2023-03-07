@@ -25,40 +25,7 @@ import {
       <div
         class="w-full flex flex-col justify-start sm:flex-row md:justify-between lg:justify-around items-start px-4 my-4 sm:space-x-12">
         <div class="w-full">
-          <div
-            class="flex flex-col justify-start md:flex-row md:justify-center items-center">
-            <div class="relative w-full md:w-1/2 h-48">
-              <!-- <app-gauge
-                chartId="chartId1"
-                chartLabel="current"></app-gauge> -->
-
-              <!-- <app-gauge-chart
-                chartId="chartId1"
-                [needleValue]="65"
-                chartLabel="Current"></app-gauge-chart> -->
-
-              <app-gauge-echart
-                chartId="chartId1"
-                chartLabel="Current"
-                [needleValue]="65"></app-gauge-echart>
-            </div>
-            <div class="relative w-full md:w-1/2 h-48">
-              <!-- <app-gauge
-                chartId="chartId2"
-                chartLabel="adjusted"></app-gauge> -->
-
-              <!-- <app-gauge-chart
-                chartId="chartId2"
-                [needleValue]="75"
-                chartLabel="Adjusted"></app-gauge-chart> -->
-
-              <app-gauge-echart
-                chartId="chartId2"
-                chartLabel="Adjusted"
-                [needleValue]="75"></app-gauge-echart>
-            </div>
-          </div>
-          <!-- <app-multi-gauge></app-multi-gauge> -->
+          <app-multi-gauge></app-multi-gauge>
 
           <div class="w-full mt-4">
             <app-range-counter class="w-full space-y-8"></app-range-counter>
