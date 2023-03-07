@@ -71,11 +71,11 @@ export class GaugeEchartComponent implements OnInit, AfterViewInit, OnDestroy {
         color: "#45ba14",
       },
       {
-        offset: 0.23,
+        offset: 0.5,
         color: "#a2c30a",
       },
       {
-        offset: 0.5,
+        offset: 0.75,
         color: "#ffcc00",
       },
       {
@@ -161,7 +161,7 @@ export class GaugeEchartComponent implements OnInit, AfterViewInit, OnDestroy {
             valueAnimation: true,
             formatter: (value: number) => {
               // return Math.round(value * 100) + "";
-              return this.needleValue + "";
+              return this.needleValue + "%";
             },
           },
           data: [
