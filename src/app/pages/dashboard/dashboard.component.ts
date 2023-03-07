@@ -2,11 +2,8 @@ import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import {
   RangeCounterComponent,
-  GaugeComponent,
   CardComponent,
   MultiGaugeComponent,
-  GaugeChartComponent,
-  GaugeEchartComponent,
 } from "../../components";
 @Component({
   selector: "app-dashboard",
@@ -14,9 +11,6 @@ import {
   imports: [
     CommonModule,
     RangeCounterComponent,
-    GaugeComponent,
-    GaugeChartComponent,
-    GaugeEchartComponent,
     CardComponent,
     MultiGaugeComponent,
   ],
