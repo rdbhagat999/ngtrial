@@ -93,10 +93,9 @@ export class GaugeChartComponent implements OnInit, AfterViewInit, OnDestroy {
       0
     );
 
-    this.gradientSegment.addColorStop(0.2, "red");
-    this.gradientSegment.addColorStop(0.5, "orange");
-    this.gradientSegment.addColorStop(0.85, "yellow");
-    this.gradientSegment.addColorStop(1, "green");
+    this.gradientSegment.addColorStop(0.7, "#2e8b57cc");
+    this.gradientSegment.addColorStop(0.95, "yellow");
+    this.gradientSegment.addColorStop(1, "#ff4500d6");
 
     const data = {
       labels: ["Chart label"],
@@ -155,7 +154,7 @@ export class GaugeChartComponent implements OnInit, AfterViewInit, OnDestroy {
           textAlign: any
         ) {
           ctx.font = `${fontSize}px san-serif`;
-          ctx.fillStyle = "#666";
+          ctx.fillStyle = "rgba(30, 58, 138, 1)";
           ctx.textBaseLine = textBaseLine;
           ctx.textAlign = textAlign;
           ctx.fillText(text, x, y);
@@ -163,11 +162,12 @@ export class GaugeChartComponent implements OnInit, AfterViewInit, OnDestroy {
 
         textLabel("0", left + 5, coodY + 20, 20, "top", "left");
         textLabel("100", right, coodY + 20, 20, "top", "right");
-        textLabel(`${score}%`, coodX, coodY - 20, 32, "bottom", "center");
+
+        textLabel(`${score}%`, coodX, coodY - 50, 32, "bottom", "center");
         textLabel(
           `${this.chartLabel}`,
           coodX,
-          coodY - 75,
+          coodY + 30,
           16,
           "bottom",
           "center"
@@ -204,14 +204,14 @@ export class GaugeChartComponent implements OnInit, AfterViewInit, OnDestroy {
         ctx.moveTo(0, -5);
         ctx.lineTo(height - ctx.canvas.offsetTop - 50, 0);
         ctx.lineTo(0, 5);
-        ctx.fillStyle = "#e9967a";
+        ctx.fillStyle = "rgba(30, 58, 138, 1)";
         ctx.fill();
         ctx.restore();
 
         // needle dot
         // ctx.translate(-cx, -cy);
         ctx.beginPath();
-        ctx.fillStyle = "#e9967a";
+        ctx.fillStyle = "rgba(30, 58, 138, 1)";
         ctx.arc(cx, cy, 10, 0, 10);
         ctx.fill();
         ctx.restore();
@@ -226,6 +226,11 @@ export class GaugeChartComponent implements OnInit, AfterViewInit, OnDestroy {
         animation: {
           animateRotate: false,
           animateScale: false,
+        },
+        layout: {
+          padding: {
+            bottom: 30,
+          },
         },
         aspectRatio: 1.5,
         responsive: true,
